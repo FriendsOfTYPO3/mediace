@@ -28,6 +28,8 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['ContentObjects']['QTOBJECT']   = \FoT3\Mediac
 if (TYPO3_MODE === 'FE') {
     // Register the basic media wizard provider
     \FoT3\Mediace\MediaWizard\MediaWizardProviderManager::registerMediaWizardProvider(\FoT3\Mediace\MediaWizard\MediaWizardProvider::class);
+    // Register FLV validation callback for FLV player
+    $GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']['validateHash'] = 'EXT:mediace/Resources/PHP/ValidateHashEID.php';
 }
 
 if (TYPO3_MODE === 'BE') {
