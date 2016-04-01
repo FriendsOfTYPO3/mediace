@@ -225,9 +225,9 @@
 										<title>LLL:EXT:mediace/Resources/Private/Language/locallang.xlf:flexform.browseUrlTitle</title>
 										<icon>EXT:mediace/Resources/Public/Images/FormFieldWizard/wizard_link.gif</icon>
 										<module type="array">
-											<name>wizard_link_browser</name>
+											<name>wizard_element_browser</name>
 											<urlParameters type="array">
-												<act>file</act>
+												<mode>file</mode>
 											</urlParameters>
 										</module>
 										<params type="array">
