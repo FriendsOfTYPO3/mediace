@@ -227,7 +227,7 @@
 										<module type="array">
 											<name>wizard_link</name>
 											<urlParameters type="array">
-												<mode>file|url</mode>
+												<act>file</act>
 											</urlParameters>
 										</module>
 										<params type="array">
