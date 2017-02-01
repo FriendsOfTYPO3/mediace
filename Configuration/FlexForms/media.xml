@@ -276,7 +276,7 @@
 														<module type="array">
 															<name>wizard_link</name>
 															<urlParameters type="array">
-																<act>file</act>
+																<mode>file|url</mode>
 															</urlParameters>
 														</module>
 														<params type="array">
@@ -309,7 +309,7 @@
 										<module type="array">
 											<name>wizard_link</name>
 											<urlParameters type="array">
-												<act>file</act>
+												<mode>file|url</mode>
 											</urlParameters>
 										</module>
 										<params type="array">
@@ -347,7 +347,7 @@
 														<module type="array">
 															<name>wizard_link</name>
 															<urlParameters type="array">
-																<act>file</act>
+																<mode>file|url</mode>
 															</urlParameters>
 														</module>
 														<params type="array">
@@ -392,7 +392,7 @@
 										<module type="array">
 											<name>wizard_link</name>
 											<urlParameters type="array">
-												<act>file</act>
+												<mode>file|url</mode>
 											</urlParameters>
 										</module>
 										<params type="array">
@@ -430,7 +430,7 @@
 														<module type="array">
 															<name>wizard_link</name>
 															<urlParameters type="array">
-																<act>file</act>
+																<mode>file|url</mode>
 															</urlParameters>
 														</module>
 														<params type="array">
