@@ -46,7 +46,14 @@ class MultimediaContentObject extends \TYPO3\CMS\Frontend\ContentObject\Abstract
                 if (!$height) {
                     $height = 200;
                 }
-                $parArray['src'] = 'src="' . $GLOBALS['TSFE']->absRefPrefix . $incFile . '"';
+                // may be a youtube link e.g., so no prefixing
+                if (strpos($incFile, 'http') === 0) {
+                    $isHtmlUrl = true;
+                    $parArray['src'] = 'src="' . $incFile . '"';
+                } else {
+                    $parArray['src'] = 'src="' . $GLOBALS['TSFE']->absRefPrefix . $incFile . '"';
+                    $isHtmlUrl = false;
+                }
                 if (\TYPO3\CMS\Core\Utility\GeneralUtility::inList('au,wav,mp3', $fileinfo['fileext'])) {
                 }
                 if (\TYPO3\CMS\Core\Utility\GeneralUtility::inList('avi,mov,mpg,asf,wmv', $fileinfo['fileext'])) {
@@ -81,7 +88,12 @@ class MultimediaContentObject extends \TYPO3\CMS\Frontend\ContentObject\Abstract
                     $parArray['codebase'] = 'codebase="' . htmlspecialchars($fileinfo['path']) . '"';
                     $content = '<applet ' . implode(' ', $parArray) . '></applet>';
                 } else {
-                    $content = '<embed ' . implode(' ', $parArray) . '></embed>';
+                    if ($isHtmlUrl === false) {
+                        $content = '<embed ' . implode(' ', $parArray) . '></embed>';
+                    } else {
+                        $content = '<iframe ' . implode(' ', $parArray) . '></iframe>';
+                    }
+
                 }
             }
         }
