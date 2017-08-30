@@ -135,7 +135,8 @@ class MediaWizardProvider implements MediaWizardProviderInterface
         }
 
         if ($videoId) {
-            $url = $this->getUrlSchema() . 'www.youtube.com/embed/' . $videoId;
+            //$url = $this->getUrlSchema() . 'www.youtube.com/embed/' . $videoId;
+            $url = $matches[0];
         }
         return $url;
     }
