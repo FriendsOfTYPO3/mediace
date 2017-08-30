@@ -91,7 +91,7 @@ class MultimediaContentObject extends \TYPO3\CMS\Frontend\ContentObject\Abstract
                     if ($isHtmlUrl === false) {
                         $content = '<embed ' . implode(' ', $parArray) . '></embed>';
                     } else {
-                        $content = '<iframe ' . implode(' ', $parArray) . '></iframe>';
+                        $content = '<iframe ' . implode(' ', $parArray) . ' frameborder="0" allowfullscreen></iframe>';
                     }
 
                 }

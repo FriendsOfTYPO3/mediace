@@ -47,6 +47,10 @@ class MediaContentObject extends \TYPO3\CMS\Frontend\ContentObject\AbstractConte
                 if (isset($source['mmSource'])) {
                     $source = $source['mmSource'];
                     $conf['sources'][$key] = $this->retrieveMediaUrl($source);
+                    // if we have a HTTP(s) protocol set type to embed, e.g. then youtube etc. will be rendered as iframe
+                    if (strpos($source, 'http') === 0) {
+                        $conf['renderType'] = 'embed';
+                    }
                 }
             }
         } else {
@@ -58,6 +62,11 @@ class MediaContentObject extends \TYPO3\CMS\Frontend\ContentObject\AbstractConte
         // Backward compatibility file
         if ($videoFallback !== null) {
             $conf['file'] = $this->retrieveMediaUrl($videoFallback);
+            // if we have a HTTP(s) protocol set type to embed, e.g. then youtube etc. will be rendered as iframe
+            if (strpos($conf['file'], 'http') === 0) {
+                $conf['renderType'] = 'embed';
+                $conf['parameter.']['mmRenderType'] = 'embed';
+            }
         } else {
             unset($conf['file']);
         }
