@@ -30,7 +30,7 @@
 					<mmUseHTML5>
 						<TCEforms>
 							<label>LLL:EXT:mediace/Resources/Private/Language/locallang.xlf:flexform.useHTML5</label>
-							<displayCond>FIELD:mmType:!=:audio</displayCond>
+							
 							<onChange>reload</onChange>
 							<config>
 								<type>check</type>
@@ -207,7 +207,7 @@
 			<ROOT>
 				<TCEforms>
 					<sheetTitle>LLL:EXT:mediace/Resources/Private/Language/locallang.xlf:flexform.tabVideo</sheetTitle>
-					<displayCond>FIELD:sGeneral.mmType:!=:audio</displayCond>
+
 				</TCEforms>
 				<type>array</type>
 				<el>
@@ -247,7 +247,7 @@
 			<ROOT>
 				<TCEforms>
 					<sheetTitle>LLL:EXT:mediace/Resources/Private/Language/locallang.xlf:flexform.tabVideoAccessible</sheetTitle>
-					<displayCond>FIELD:sGeneral.mmUseHTML5:=:1</displayCond>
+
 				</TCEforms>
 				<type>array</type>
 				<el>
@@ -372,7 +372,7 @@
 			<ROOT>
 				<TCEforms>
 					<sheetTitle>LLL:EXT:mediace/Resources/Private/Language/locallang.xlf:flexform.tabAudio</sheetTitle>
-					<displayCond>FIELD:sGeneral.mmType:=:audio</displayCond>
+
 				</TCEforms>
 				<type>array</type>
 				<el>
