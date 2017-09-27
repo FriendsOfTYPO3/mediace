@@ -30,7 +30,6 @@
 					<mmUseHTML5>
 						<TCEforms>
 							<label>LLL:EXT:mediace/Resources/Private/Language/locallang.xlf:flexform.useHTML5</label>
-							
 							<onChange>reload</onChange>
 							<config>
 								<type>check</type>
