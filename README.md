@@ -5,6 +5,12 @@ Adds media-based content elements with Flash or native HTML5 to your website.
 The functionality was part of TYPO3, until TYPO3 CMS 7 LTS, and moved into its own
 extension, receiving its own public repository.
 
+Related changelog entries:
+https://docs.typo3.org/typo3cms/extensions/core/7.6/Changelog/7.2/Breaking-65778-MediaWizardProviderMovedToSystemExtension.html
+https://docs.typo3.org/typo3cms/extensions/core/7.6/Changelog/7.2/Breaking-64719-MediaContentMovedToSystemExtension.html
+https://docs.typo3.org/typo3cms/extensions/core/7.6/Changelog/7.6/Important-68079-ExtensionMediaceMovedToTER.html
+
+
 ## Installation
 The latest version can be installed via TER (http://typo3.org) or via composer
 by adding ''composer require friendsoftypo3/mediace'' in a TYPO3 CMS 7+ installation.
