@@ -107,10 +107,13 @@ class MediaContentObject extends \TYPO3\CMS\Frontend\ContentObject\AbstractConte
             // Default renderType is swf
             $renderType = 'swf';
             $handler = array_keys($conf['fileExtHandler.']);
+
+            $linkService = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\LinkHandling\LinkService::class);
+
             if ($conf['type'] === 'video') {
-                $fileinfo = \TYPO3\CMS\Core\Utility\GeneralUtility::split_fileref($conf['file']);
+                $fileinfo = \TYPO3\CMS\Core\Utility\GeneralUtility::split_fileref($linkService->resolve($conf['file'])->getIdentifier());
             } else {
-                $fileinfo = \TYPO3\CMS\Core\Utility\GeneralUtility::split_fileref($conf['audioFallback']);
+                $fileinfo = \TYPO3\CMS\Core\Utility\GeneralUtility::split_fileref($linkService->resolve($conf['audioFallback'])->getIdentifier());
             }
             if (in_array($fileinfo['fileext'], $handler)) {
                 $renderType = strtolower($conf['fileExtHandler.'][$fileinfo['fileext']]);
