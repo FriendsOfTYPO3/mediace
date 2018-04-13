@@ -111,9 +111,9 @@ class MediaContentObject extends \TYPO3\CMS\Frontend\ContentObject\AbstractConte
             $linkService = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\LinkHandling\LinkService::class);
 
             if ($conf['type'] === 'video') {
-                $fileinfo = \TYPO3\CMS\Core\Utility\GeneralUtility::split_fileref($linkService->resolve($conf['file'])->getIdentifier());
+                $fileinfo = \TYPO3\CMS\Core\Utility\GeneralUtility::split_fileref($linkService->resolve($conf['file'])['file']->getIdentifier());
             } else {
-                $fileinfo = \TYPO3\CMS\Core\Utility\GeneralUtility::split_fileref($linkService->resolve($conf['audioFallback'])->getIdentifier());
+                $fileinfo = \TYPO3\CMS\Core\Utility\GeneralUtility::split_fileref($linkService->resolve($conf['audioFallback'])['file']->getIdentifier());
             }
             if (in_array($fileinfo['fileext'], $handler)) {
                 $renderType = strtolower($conf['fileExtHandler.'][$fileinfo['fileext']]);
