@@ -46,7 +46,11 @@ class MultimediaContentObject extends \TYPO3\CMS\Frontend\ContentObject\Abstract
                 if (!$height) {
                     $height = 200;
                 }
-                $parArray['src'] = 'src="' . $GLOBALS['TSFE']->absRefPrefix . $incFile . '"';
+                if (strpos($incFile,'http') === 0) {
+                    $parArray['src'] = 'src="' . $incFile . '"';
+                } else {
+                    $parArray['src'] = 'src="' . $GLOBALS['TSFE']->absRefPrefix . $incFile . '"';
+                }
                 if (\TYPO3\CMS\Core\Utility\GeneralUtility::inList('au,wav,mp3', $fileinfo['fileext'])) {
                 }
                 if (\TYPO3\CMS\Core\Utility\GeneralUtility::inList('avi,mov,mpg,asf,wmv', $fileinfo['fileext'])) {
