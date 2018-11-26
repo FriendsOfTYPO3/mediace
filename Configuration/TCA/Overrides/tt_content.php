@@ -96,7 +96,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['multimedia']['columnsOverr
     $GLOBALS['TCA']['tt_content']['types']['multimedia']['columnsOverrides']['bodytext'] = array();
 }
 if (version_compare(TYPO3_version, '8.7', '<')) {
-$GLOBALS['TCA']['tt_content']['types']['multimedia']['columnsOverrides']['bodytext']['defaultExtras'] = $baseDefaultExtrasOfBodytext . 'nowrap';
+    $GLOBALS['TCA']['tt_content']['types']['multimedia']['columnsOverrides']['bodytext']['defaultExtras'] = $baseDefaultExtrasOfBodytext . 'nowrap';
 } else {
     $GLOBALS['TCA']['tt_content']['types']['multimedia']['columnsOverrides']['bodytext']['config']['wrap'] = 'off';
 }
