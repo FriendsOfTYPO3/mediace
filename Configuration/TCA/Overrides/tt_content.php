@@ -80,9 +80,12 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['media']['columnsOverrides'
 if (!is_array($GLOBALS['TCA']['tt_content']['types']['media']['columnsOverrides']['bodytext'])) {
     $GLOBALS['TCA']['tt_content']['types']['media']['columnsOverrides']['bodytext'] = array();
 }
-$GLOBALS['TCA']['tt_content']['types']['media']['columnsOverrides']['bodytext']['config']['enableRichtext'] = '1';
-$GLOBALS['TCA']['tt_content']['types']['media']['columnsOverrides']['bodytext']['config']['richtextConfiguration'] = 'default';
-
+if (version_compare(TYPO3_version, '8.7', '<')) {
+    $GLOBALS['TCA']['tt_content']['types']['media']['columnsOverrides']['bodytext']['defaultExtras'] = $baseDefaultExtrasOfBodytext . 'richtext:rte_transform[mode=ts_css]';
+} else {
+    $GLOBALS['TCA']['tt_content']['types']['media']['columnsOverrides']['bodytext']['config']['enableRichtext'] = '1';
+    $GLOBALS['TCA']['tt_content']['types']['media']['columnsOverrides']['bodytext']['config']['richtextConfiguration'] = 'default';
+}
 $GLOBALS['TCA']['tt_content']['palettes']['multimediafiles'] = array(
     'showitem' => 'multimedia;LLL:EXT:mediace/Resources/Private/Language/locallang.xlf:tt_content.multimedia_formlabel, bodytext;LLL:EXT:mediace/Resources/Private/Language/locallang.xlf:tt_content.bodytext',
 );
@@ -92,8 +95,11 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['multimedia']['columnsOverr
 if (!is_array($GLOBALS['TCA']['tt_content']['types']['multimedia']['columnsOverrides']['bodytext'])) {
     $GLOBALS['TCA']['tt_content']['types']['multimedia']['columnsOverrides']['bodytext'] = array();
 }
-$GLOBALS['TCA']['tt_content']['types']['multimedia']['columnsOverrides']['bodytext']['config']['wrap'] = 'off';
-
+if (version_compare(TYPO3_version, '8.7', '<')) {
+$GLOBALS['TCA']['tt_content']['types']['multimedia']['columnsOverrides']['bodytext']['defaultExtras'] = $baseDefaultExtrasOfBodytext . 'nowrap';
+} else {
+    $GLOBALS['TCA']['tt_content']['types']['multimedia']['columnsOverrides']['bodytext']['config']['wrap'] = 'off';
+}
 
 // Add flexform
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('*', 'FILE:EXT:mediace/Configuration/FlexForms/media.xml', 'media');
