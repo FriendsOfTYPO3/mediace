@@ -47,10 +47,6 @@ class MediaContentObject extends \TYPO3\CMS\Frontend\ContentObject\AbstractConte
                 if (isset($source['mmSource'])) {
                     $source = $source['mmSource'];
                     $conf['sources'][$key] = $this->retrieveMediaUrl($source);
-                    // if we have a HTTP(s) protocol set type to embed, e.g. then youtube etc. will be rendered as iframe
-                    if (strpos($source, 'http') === 0) {
-                        $conf['renderType'] = 'embed';
-                    }
                 }
             }
         } else {
@@ -62,11 +58,6 @@ class MediaContentObject extends \TYPO3\CMS\Frontend\ContentObject\AbstractConte
         // Backward compatibility file
         if ($videoFallback !== null) {
             $conf['file'] = $this->retrieveMediaUrl($videoFallback);
-            // if we have a HTTP(s) protocol set type to embed, e.g. then youtube etc. will be rendered as iframe
-            if (strpos($conf['file'], 'http') === 0) {
-                $conf['renderType'] = 'embed';
-                $conf['parameter.']['mmRenderType'] = 'embed';
-            }
         } else {
             unset($conf['file']);
         }
@@ -107,13 +98,10 @@ class MediaContentObject extends \TYPO3\CMS\Frontend\ContentObject\AbstractConte
             // Default renderType is swf
             $renderType = 'swf';
             $handler = array_keys($conf['fileExtHandler.']);
-
-            $linkService = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\LinkHandling\LinkService::class);
-
             if ($conf['type'] === 'video') {
-                $fileinfo = \TYPO3\CMS\Core\Utility\GeneralUtility::split_fileref($linkService->resolve($conf['file'])['file']->getIdentifier());
+                $fileinfo = \TYPO3\CMS\Core\Utility\GeneralUtility::split_fileref($conf['file']);
             } else {
-                $fileinfo = \TYPO3\CMS\Core\Utility\GeneralUtility::split_fileref($linkService->resolve($conf['audioFallback'])['file']->getIdentifier());
+                $fileinfo = \TYPO3\CMS\Core\Utility\GeneralUtility::split_fileref($conf['audioFallback']);
             }
             if (in_array($fileinfo['fileext'], $handler)) {
                 $renderType = strtolower($conf['fileExtHandler.'][$fileinfo['fileext']]);

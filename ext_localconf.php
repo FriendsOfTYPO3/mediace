@@ -3,12 +3,14 @@ defined('TYPO3_MODE') or die();
 
 // Register additional content objects
 $GLOBALS['TYPO3_CONF_VARS']['FE']['ContentObjects']['MULTIMEDIA'] = \FoT3\Mediace\ContentObject\MultimediaContentObject::class;
-$GLOBALS['TYPO3_CONF_VARS']['FE']['ContentObjects']['MEDIA']      = \FoT3\Mediace\ContentObject\MediaContentObject::class;
-$GLOBALS['TYPO3_CONF_VARS']['FE']['ContentObjects']['SWFOBJECT']  = \FoT3\Mediace\ContentObject\ShockwaveFlashObjectContentObject::class;
+$GLOBALS['TYPO3_CONF_VARS']['FE']['ContentObjects']['MEDIA'] = \FoT3\Mediace\ContentObject\MediaContentObject::class;
+$GLOBALS['TYPO3_CONF_VARS']['FE']['ContentObjects']['SWFOBJECT'] = \FoT3\Mediace\ContentObject\ShockwaveFlashObjectContentObject::class;
 $GLOBALS['TYPO3_CONF_VARS']['FE']['ContentObjects']['FLOWPLAYER'] = \FoT3\Mediace\ContentObject\FlowPlayerContentObject::class;
-$GLOBALS['TYPO3_CONF_VARS']['FE']['ContentObjects']['QTOBJECT']   = \FoT3\Mediace\ContentObject\QuicktimeObjectContentObject::class;
+$GLOBALS['TYPO3_CONF_VARS']['FE']['ContentObjects']['QTOBJECT'] = \FoT3\Mediace\ContentObject\QuicktimeObjectContentObject::class;
 
-// Register the "media" CType to the "New Content Element" wizard
+/* Register the "media" CType to the "New Content Element" wizard */
+/* do not include the media element in wizard because it should not used for new elements because of deprecation */
+/*
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('
 	mod.wizards.newContentElement.wizardItems {
 		special.elements.media {
@@ -20,10 +22,13 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['ContentObjects']['QTOBJECT']   = \FoT3\Mediac
 		special.show := addToList(media)
 	}
 ');
-
+*/
 // Add Default TypoScript for CType "media" and "multimedia" after default content rendering
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScript('mediace', 'constants', '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:mediace/Configuration/TypoScript/constants.txt">', 'defaultContentRendering');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScript('mediace', 'setup', '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:mediace/Configuration/TypoScript/setup.txt">', 'defaultContentRendering');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScript('mediace', 'constants',
+    '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:mediace/Configuration/TypoScript/constants.txt">',
+    'defaultContentRendering');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScript('mediace', 'setup',
+    '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:mediace/Configuration/TypoScript/setup.txt">', 'defaultContentRendering');
 
 if (TYPO3_MODE === 'FE') {
     // Register the basic media wizard provider

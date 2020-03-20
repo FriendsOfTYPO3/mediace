@@ -1,0 +1,72 @@
+# remove PHPStorm folders
+*.idea
+.idea/*
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# =========================
+# Operating System Files
+# =========================
+
+# OSX
+# =========================
+
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# remove npm folders and config
+node_modules/
+package-lock.json
+.sass-cache/
+
+/var/
+public/fileadmin/
+public/uploads/
+public/typo3conf/ext/
+public/typo3conf/l10n/
+public/typo3temp/
+public/typo3/
+public/typo3conf/ENABLE_INSTALL_TOOL
+public/index.php
+*.log
+vendor
+PackageStates.php
+LocalConfiguration.php
+node_modules/
+/DB/
+src_t3
+public/typo3conf/LocalConfiguration.php
+public/typo3conf/LocalConfiguration_dev.php
+public/typo3conf/LocalConfiguration_live.php

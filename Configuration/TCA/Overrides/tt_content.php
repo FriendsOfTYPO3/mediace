@@ -6,8 +6,6 @@ defined('TYPO3_MODE') or die();
  */
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['multimedia'] = 'mimetypes-x-content-multimedia';
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['media'] = 'mimetypes-x-content-multimedia';
-$GLOBALS['TCA']['tt_content']['ctrl']['transOrigPointerField'] = 'l18n_parent';
-
 
 // Register new CType in item list just before "menu"
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem('tt_content', 'CType',
@@ -52,8 +50,6 @@ $GLOBALS['TCA']['tt_content']['types']['multimedia'] = array(
 			--palette--;LLL:EXT:mediace/Resources/Private/Language/locallang.xlf:tt_content.palette.multimediafiles;multimediafiles,
 		--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
 			--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.frames;frames,
-		--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
-		    --palette--;;language,
 		--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
 			--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
 			--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
@@ -66,8 +62,6 @@ $GLOBALS['TCA']['tt_content']['types']['media'] = array(
 			pi_flexform,
 		--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
 			--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.frames;frames,
-		--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
-		    --palette--;;language,
 		--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
 			--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
 			--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
@@ -76,7 +70,6 @@ $GLOBALS['TCA']['tt_content']['types']['media'] = array(
 		--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.extended'
 );
 $baseDefaultExtrasOfBodytext = '';
-/*
 if (!empty($GLOBALS['TCA']['tt_content']['columns']['bodytext']['defaultExtras'])) {
     $baseDefaultExtrasOfBodytext = $GLOBALS['TCA']['tt_content']['columns']['bodytext']['defaultExtras'] . ':';
 }
@@ -98,7 +91,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['multimedia']['columnsOverr
     $GLOBALS['TCA']['tt_content']['types']['multimedia']['columnsOverrides']['bodytext'] = array();
 }
 $GLOBALS['TCA']['tt_content']['types']['multimedia']['columnsOverrides']['bodytext']['defaultExtras'] = $baseDefaultExtrasOfBodytext . 'nowrap';
-*/
 
 // Add flexform
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('*', 'FILE:EXT:mediace/Configuration/FlexForms/media.xml', 'media');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('*',
+    'FILE:EXT:mediace/Configuration/FlexForms/media.xml', 'media');

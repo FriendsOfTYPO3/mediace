@@ -1,4 +1,5 @@
 <?php
+
 namespace FoT3\Mediace\ContentObject;
 
 /*
@@ -19,6 +20,7 @@ namespace FoT3\Mediace\ContentObject;
  */
 class MultimediaContentObject extends \TYPO3\CMS\Frontend\ContentObject\AbstractContentObject
 {
+
     /**
      * Rendering the cObject, MULTIMEDIA
      *
@@ -33,27 +35,22 @@ class MultimediaContentObject extends \TYPO3\CMS\Frontend\ContentObject\Abstract
         if ($incFile) {
             $fileinfo = \TYPO3\CMS\Core\Utility\GeneralUtility::split_fileref($incFile);
             if (\TYPO3\CMS\Core\Utility\GeneralUtility::inList('txt,html,htm', $fileinfo['fileext'])) {
-                $content = $GLOBALS['TSFE']->tmpl->fileContent($incFile);
+                $content = file_get_contents($incFile);
             } else {
                 // Default params...
                 $parArray = array();
                 // Src is added
-                $width = isset($conf['width.']) ? $this->cObj->stdWrap($conf['width'], $conf['width.']) : $conf['width'];
+                $width = isset($conf['width.']) ? $this->cObj->stdWrap($conf['width'],
+                    $conf['width.']) : $conf['width'];
                 if (!$width) {
                     $width = 200;
                 }
-                $height = isset($conf['height.']) ? $this->cObj->stdWrap($conf['height'], $conf['height.']) : $conf['height'];
+                $height = isset($conf['height.']) ? $this->cObj->stdWrap($conf['height'],
+                    $conf['height.']) : $conf['height'];
                 if (!$height) {
                     $height = 200;
                 }
-                // may be a youtube link e.g., so no prefixing
-                if (strpos($incFile, 'http') === 0) {
-                    $isHtmlUrl = true;
-                    $parArray['src'] = 'src="' . $incFile . '"';
-                } else {
-                    $parArray['src'] = 'src="' . $GLOBALS['TSFE']->absRefPrefix . $incFile . '"';
-                    $isHtmlUrl = false;
-                }
+                $parArray['src'] = 'src="' . $GLOBALS['TSFE']->absRefPrefix . $incFile . '"';
                 if (\TYPO3\CMS\Core\Utility\GeneralUtility::inList('au,wav,mp3', $fileinfo['fileext'])) {
                 }
                 if (\TYPO3\CMS\Core\Utility\GeneralUtility::inList('avi,mov,mpg,asf,wmv', $fileinfo['fileext'])) {
@@ -70,7 +67,8 @@ class MultimediaContentObject extends \TYPO3\CMS\Frontend\ContentObject\Abstract
                     $parArray['height'] = 'height="' . $height . '"';
                 }
                 // fetching params
-                $params = isset($conf['params.']) ? $this->cObj->stdWrap($conf['params'], $conf['params.']) : $conf['params'];
+                $params = isset($conf['params.']) ? $this->cObj->stdWrap($conf['params'],
+                    $conf['params.']) : $conf['params'];
                 $lines = explode(LF, $params);
                 foreach ($lines as $l) {
                     $parts = explode('=', $l);
@@ -88,12 +86,7 @@ class MultimediaContentObject extends \TYPO3\CMS\Frontend\ContentObject\Abstract
                     $parArray['codebase'] = 'codebase="' . htmlspecialchars($fileinfo['path']) . '"';
                     $content = '<applet ' . implode(' ', $parArray) . '></applet>';
                 } else {
-                    if ($isHtmlUrl === false) {
-                        $content = '<embed ' . implode(' ', $parArray) . '></embed>';
-                    } else {
-                        $content = '<iframe ' . implode(' ', $parArray) . ' frameborder="0" allowfullscreen></iframe>';
-                    }
-
+                    $content = '<embed ' . implode(' ', $parArray) . '></embed>';
                 }
             }
         }
