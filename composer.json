@@ -3,7 +3,6 @@
 	"type": "typo3-cms-extension",
 	"description": "Allows to have non-FAL Media Content Elements like Video and Audio, behaves like TYPO3 4.x and TYPO3 6.x, but acts as compatibility layer for TYPO3 CMS 9.",
 	"homepage": "https://typo3.org",
-	"version": "9.5.0",
 	"license": [
 		"GPL-2.0+"
 	],
