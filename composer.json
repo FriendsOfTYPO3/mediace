@@ -9,14 +9,14 @@
 		"typo3/cms-core": "~7.6.0",
 		"typo3/cms-frontend": "~7.6.0"
 	},
-	"replace": {
-		"mediace": "*"
-	},
 	"extra": {
 		"typo3/class-alias-loader": {
 			"class-alias-maps": [
 				"Migrations/Code/ClassAliasMap.php"
 			]
+		},
+		"typo3/cms": {
+			"extension-key": "mediace"
 		}
 	},
 	"autoload": {
