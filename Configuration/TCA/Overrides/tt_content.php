@@ -7,7 +7,6 @@ defined('TYPO3_MODE') or die();
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['multimedia'] = 'mimetypes-x-content-multimedia';
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['media'] = 'mimetypes-x-content-multimedia';
 
-
 // Register new CType in item list just before "menu"
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem('tt_content', 'CType',
     array(
@@ -93,6 +92,6 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['multimedia']['columnsOverr
 }
 $GLOBALS['TCA']['tt_content']['types']['multimedia']['columnsOverrides']['bodytext']['defaultExtras'] = $baseDefaultExtrasOfBodytext . 'nowrap';
 
-
 // Add flexform
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('*', 'FILE:EXT:mediace/Configuration/FlexForms/media.xml', 'media');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('*',
+    'FILE:EXT:mediace/Configuration/FlexForms/media.xml', 'media');

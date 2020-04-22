@@ -1,4 +1,5 @@
 <?php
+
 namespace FoT3\Mediace\ContentObject;
 
 /*
@@ -19,6 +20,7 @@ namespace FoT3\Mediace\ContentObject;
  */
 class MultimediaContentObject extends \TYPO3\CMS\Frontend\ContentObject\AbstractContentObject
 {
+
     /**
      * Rendering the cObject, MULTIMEDIA
      *
@@ -33,16 +35,18 @@ class MultimediaContentObject extends \TYPO3\CMS\Frontend\ContentObject\Abstract
         if ($incFile) {
             $fileinfo = \TYPO3\CMS\Core\Utility\GeneralUtility::split_fileref($incFile);
             if (\TYPO3\CMS\Core\Utility\GeneralUtility::inList('txt,html,htm', $fileinfo['fileext'])) {
-                $content = $GLOBALS['TSFE']->tmpl->fileContent($incFile);
+                $content = file_get_contents($incFile);
             } else {
                 // Default params...
                 $parArray = array();
                 // Src is added
-                $width = isset($conf['width.']) ? $this->cObj->stdWrap($conf['width'], $conf['width.']) : $conf['width'];
+                $width = isset($conf['width.']) ? $this->cObj->stdWrap($conf['width'],
+                    $conf['width.']) : $conf['width'];
                 if (!$width) {
                     $width = 200;
                 }
-                $height = isset($conf['height.']) ? $this->cObj->stdWrap($conf['height'], $conf['height.']) : $conf['height'];
+                $height = isset($conf['height.']) ? $this->cObj->stdWrap($conf['height'],
+                    $conf['height.']) : $conf['height'];
                 if (!$height) {
                     $height = 200;
                 }
@@ -63,7 +67,8 @@ class MultimediaContentObject extends \TYPO3\CMS\Frontend\ContentObject\Abstract
                     $parArray['height'] = 'height="' . $height . '"';
                 }
                 // fetching params
-                $params = isset($conf['params.']) ? $this->cObj->stdWrap($conf['params'], $conf['params.']) : $conf['params'];
+                $params = isset($conf['params.']) ? $this->cObj->stdWrap($conf['params'],
+                    $conf['params.']) : $conf['params'];
                 $lines = explode(LF, $params);
                 foreach ($lines as $l) {
                     $parts = explode('=', $l);

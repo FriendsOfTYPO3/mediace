@@ -14,8 +14,8 @@ namespace FoT3\Mediace\ContentObject;
  * The TYPO3 project - inspiring people to share!
  */
 
-use TYPO3\CMS\Core\Utility\ArrayUtility;
-use TYPO3\CMS\Core\Utility\StringUtility;
+use \TYPO3\CMS\Core\Utility\ArrayUtility;
+use \TYPO3\CMS\Core\Utility\StringUtility;
 
 /**
  * Contains QTOBJECT content object.
