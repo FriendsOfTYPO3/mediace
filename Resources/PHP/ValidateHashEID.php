@@ -14,10 +14,15 @@
 
 call_user_func(function() {
     $value = \TYPO3\CMS\Core\Utility\GeneralUtility::_GET('value');
-    $addition = \TYPO3\CMS\Core\Utility\GeneralUtility::_GET('addition');
     $scope = \TYPO3\CMS\Core\Utility\GeneralUtility::_GET('scope');
 
-    $content = \TYPO3\CMS\Core\Utility\GeneralUtility::hmac($value, $addition);
+    if (!is_string($value) || empty($value)) {
+        \TYPO3\CMS\Core\Utility\HttpUtility::setResponseCodeAndExit(
+            \TYPO3\CMS\Core\Utility\HttpUtility::HTTP_STATUS_400
+        );
+    }
+
+    $content = \TYPO3\CMS\Core\Utility\GeneralUtility::hmac($value, 'flashvars');
 
     if ($scope === 'flashvars') {
         header('Content-type: application/x-www-form-urlencoded');
