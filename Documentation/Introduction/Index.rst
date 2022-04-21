@@ -1,9 +1,4 @@
-﻿.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
-
-.. include:: ../Includes.txt
+﻿.. include:: /Includes.rst.txt
 
 
 .. _introduction:
@@ -25,3 +20,13 @@ It covers the following content objects:
    - MULTIMEDIA
    - QTOBJECT
    - SWFOBJECT
+
+.. _introduction-current-state:
+
+Current state
+^^^^^^^^^^^^^
+
+The latest version here reflects a feature-complete state. All newly based
+features for media elements, are now part of the Fluid-based approach in TYPO3
+implemented directly, however this extension serves as a solid foundation for
+projects that have been using media content elements starting from TYPO3 4.0.

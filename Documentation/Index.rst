@@ -1,65 +1,63 @@
-.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
+.. include:: /Includes.rst.txt
 
-.. include:: Includes.txt
+==============================
+Media Content Element (Legacy)
+==============================
 
+:Extension key:
+   mediace
 
-.. _start:
-
-=================
-MediaCE Reference
-=================
-
-:Previous Key:
-      mediace
+:Package name:
+   friendsoftypo3/mediace
 
 :Version:
-      |release|
+   |release|
 
 :Language:
-      en
-
-:Description:
-      This document is a complete reference to all objects and properties of the mediace extension.
-
-:Keywords:
-      forAdmins, forIntermediates
-
-:Copyright:
-      2000-2015
+   en
 
 :Author:
-      Friends of TYPO3
-
-:Email:
-      friendsof@typo3.org
+   TYPO3 contributors
 
 :License:
-      Open Publication License available from `www.opencontent.org/openpub/
-      <http://www.opencontent.org/openpub/>`_
+   This document is published under the
+   `Open Content License <https://www.openhub.net/licenses/opl>`__.
 
 :Rendered:
-      |today|
+   |today|
 
-The content of this document is related to TYPO3,
+----
 
-a GNU/GPL CMS/Framework available from `www.typo3.org
-<https://typo3.org/>`_
+Adds media-based content elements with Flash or native HTML5 to your website.
 
+The functionality was part of TYPO3, until TYPO3 CMS 7 LTS, and moved into its
+own extension, receiving its own public repository.
 
-**Table of Contents**
+Related changelog entries:
+:doc:`#64719 <ext_core:Changelog/7.2/Breaking-64719-MediaContentMovedToSystemExtension>` |
+:doc:`#65778 <ext_core:Changelog/7.2/Breaking-65778-MediaWizardProviderMovedToSystemExtension>` |
+:doc:`#68079 <ext_core:Changelog/7.6/Important-68079-ExtensionMediaceMovedToTER>`
+
+----
+
+**Table of Contents:**
 
 .. toctree::
-   :maxdepth: 5
+   :maxdepth: 2
    :titlesonly:
-   :glob:
 
    Introduction/Index
+   Installation/Index
    Media/Index
    Multimedia/Index
    Qtobject/Index
    Swfobject/Index
-   Targets
+   Contribution/Index
 
+.. Meta Menu
+
+.. toctree::
+   :hidden:
+
+   Sitemap
+   genindex

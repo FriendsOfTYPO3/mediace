@@ -2,7 +2,12 @@
 	"name": "friendsoftypo3/mediace",
 	"type": "typo3-cms-extension",
 	"description": "Allows to have non-FAL Media Content Elements like Video and Audio, behaves like TYPO3 4.x and TYPO3 6.x, but acts as compatibility layer for TYPO3 CMS 7.",
-	"homepage": "https://typo3.org",
+	"homepage": "https://extensions.typo3.org/extension/mediace",
+	"support": {
+		"docs": "https://docs.typo3.org/p/friendsoftypo3/mediace/main/en-us/",
+		"issues": "https://github.com/FriendsOfTYPO3/mediace/issues",
+		"source": "https://github.com/FriendsOfTYPO3/mediace"
+	},
 	"license": ["GPL-2.0+"],
 
 	"require": {
